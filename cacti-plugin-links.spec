@@ -1,7 +1,7 @@
 %define		namesrc	links
 %include	/usr/lib/rpm/macros.perl
 Summary:	Plugin for Cacti - Links
-Summary(pl.UTF-8):   Wtyczka do Cacti - Links
+Summary(pl.UTF-8):	Wtyczka do Cacti - Links
 Name:		cacti-plugin-links
 Version:	0.3
 Release:	0.1
