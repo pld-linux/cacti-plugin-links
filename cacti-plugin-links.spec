@@ -1,7 +1,7 @@
 %define		namesrc	links
 %include	/usr/lib/rpm/macros.perl
 Summary:	Plugin for Cacti - Links
-Summary(pl):	Wtyczka do Cacti - Links
+Summary(pl.UTF-8):   Wtyczka do Cacti - Links
 Name:		cacti-plugin-links
 Version:	0.3
 Release:	0.1
@@ -27,13 +27,13 @@ the tabs at the top of the page. You could use this to integrate other
 tools into Cacti - say you want to have links to Smokeping, or Request
 Tracker, or Nagios...
 
-%description -l pl
+%description -l pl.UTF-8
 To jest bardzo prosta wtyczka dla architektury wtyczek Cacti
-stworzonej przez Jimmy'ego Smitha dla Cacti 0.8.x (0.9.0 ma mieæ nowy
-system wtyczek). Jest to zapewne najmniejsza wtyczka jak± mo¿na mieæ -
-pozwala umie¶ciæ dowoln± tre¶æ HTML pod jedn± z zak³adek na górnej
-stronie. Mo¿na u¿yæ jej do zintegrowania innych narzêdzi z Cacti - np.
-odno¶ników do Smokepinga, Request Trackera lub Nagiosa...
+stworzonej przez Jimmy'ego Smitha dla Cacti 0.8.x (0.9.0 ma mieÄ‡ nowy
+system wtyczek). Jest to zapewne najmniejsza wtyczka jakÄ… moÅ¼na mieÄ‡ -
+pozwala umieÅ›ciÄ‡ dowolnÄ… treÅ›Ä‡ HTML pod jednÄ… z zakÅ‚adek na gÃ³rnej
+stronie. MoÅ¼na uÅ¼yÄ‡ jej do zintegrowania innych narzÄ™dzi z Cacti - np.
+odnoÅ›nikÃ³w do Smokepinga, Request Trackera lub Nagiosa...
 
 %prep
 %setup -q -n %{namesrc}
