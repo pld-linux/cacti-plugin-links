@@ -39,6 +39,7 @@ odnośników do Smokepinga, Request Trackera lub Nagiosa...
 
 %prep
 %setup -q -n %{namesrc}
+%patch0 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
