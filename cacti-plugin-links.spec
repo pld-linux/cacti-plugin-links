@@ -45,7 +45,7 @@ odnośników do Smokepinga, Request Trackera lub Nagiosa...
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{webcactipluginroot},%{webcactipluginconf}}
 install editme.php $RPM_BUILD_ROOT%{webcactipluginconf}/plugin-links.php
-cp -aRf * $RPM_BUILD_ROOT%{webcactipluginroot}
+cp -a * $RPM_BUILD_ROOT%{webcactipluginroot}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
