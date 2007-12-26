@@ -4,12 +4,13 @@ Summary:	Plugin for Cacti - Links
 Summary(pl.UTF-8):	Wtyczka do Cacti - Links
 Name:		cacti-plugin-links
 Version:	0.3
-Release:	0.1
+Release:	1
 License:	GPL v2
 Group:		Applications/WWW
 #!!!!problem with version
 Source0:	http://wotsit.thingy.com/haj/cacti/%{namesrc}-%{version}.zip
 # Source0-md5:	cf90133193311a3e3d63d11d3528e7ba
+Patch0:		%{name}-config.patch
 URL:		http://wotsit.thingy.com/haj/cacti/links-plugin.html
 BuildRequires:	rpm-perlprov
 Requires:	cacti
@@ -17,6 +18,7 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		webcactipluginroot /usr/share/cacti/plugins/%{namesrc}
+%define		webcactipluginconf %{_sysconfdir}/cacti
 
 %description
 This is a very simple plugin for the Cacti Plugin Architecture created
@@ -40,7 +42,8 @@ odnośników do Smokepinga, Request Trackera lub Nagiosa...
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{webcactipluginroot}
+install -d $RPM_BUILD_ROOT{%{webcactipluginroot},%{webcactipluginconf}}
+install editme.php $RPM_BUILD_ROOT%{webcactipluginconf}/plugin-links.php
 cp -aRf * $RPM_BUILD_ROOT%{webcactipluginroot}
 
 %clean
@@ -48,5 +51,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-#%doc LICENSE README 
+%attr(640,root,http) %config(noreplace) %verify(not md5 mtime size) %{webcactipluginconf}/plugin-links.php
 %{webcactipluginroot}

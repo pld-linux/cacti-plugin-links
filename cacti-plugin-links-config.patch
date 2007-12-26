@@ -1,0 +1,11 @@
+--- links/links.php.orig	2007-12-26 01:32:48.000000000 +0000
++++ links/links.php	2007-12-26 01:34:05.000000000 +0000
+@@ -8,7 +8,7 @@
+ include_once("./include/top_graph_header.php");
+ 
+ print '<div style="margin: 20px;">';
+-include_once($config["base_path"] . "/plugins/links/editme.php");
++include_once("/etc/cacti/plugin-links.php");
+ 
+ print '</div></body></html>';
+ 
