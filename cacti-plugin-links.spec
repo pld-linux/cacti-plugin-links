@@ -1,4 +1,4 @@
-%define		namesrc	links
+%define		plugin links
 %include	/usr/lib/rpm/macros.perl
 Summary:	Plugin for Cacti - Links
 Summary(pl.UTF-8):	Wtyczka do Cacti - Links
@@ -8,7 +8,7 @@ Release:	1
 License:	GPL v2
 Group:		Applications/WWW
 #!!!!problem with version
-Source0:	http://wotsit.thingy.com/haj/cacti/%{namesrc}-%{version}.zip
+Source0:	http://wotsit.thingy.com/haj/cacti/%{plugin}-%{version}.zip
 # Source0-md5:	cf90133193311a3e3d63d11d3528e7ba
 Patch0:		%{name}-config.patch
 URL:		http://wotsit.thingy.com/haj/cacti/links-plugin.html
@@ -17,8 +17,9 @@ Requires:	cacti
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		webcactipluginroot /usr/share/cacti/plugins/%{namesrc}
-%define		webcactipluginconf %{_sysconfdir}/cacti
+%define		cactidir		/usr/share/cacti
+%define		plugindir		%{cactidir}/plugins/%{plugin}
+%define		_sysconfdir		/etc/cacti
 
 %description
 This is a very simple plugin for the Cacti Plugin Architecture created
@@ -38,19 +39,19 @@ stronie. Można użyć jej do zintegrowania innych narzędzi z Cacti - np.
 odnośników do Smokepinga, Request Trackera lub Nagiosa...
 
 %prep
-%setup -q -n %{namesrc}
+%setup -q -n %{plugin}
 %patch0 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{webcactipluginroot},%{webcactipluginconf}}
-install editme.php $RPM_BUILD_ROOT%{webcactipluginconf}/plugin-links.php
-cp -a * $RPM_BUILD_ROOT%{webcactipluginroot}
+install -d $RPM_BUILD_ROOT{%{plugindir},%{_sysconfdir}}
+cp -a editme.php $RPM_BUILD_ROOT%{_sysconfdir}/plugin-links.php
+cp -a . $RPM_BUILD_ROOT%{plugindir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(640,root,http) %config(noreplace) %verify(not md5 mtime size) %{webcactipluginconf}/plugin-links.php
-%{webcactipluginroot}
+%attr(640,root,http) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/plugin-links.php
+%{plugindir}
