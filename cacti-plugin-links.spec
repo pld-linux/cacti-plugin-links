@@ -13,6 +13,7 @@ Source0:	http://wotsit.thingy.com/haj/cacti/%{plugin}-%{version}.zip
 Patch0:		%{name}-config.patch
 URL:		http://wotsit.thingy.com/haj/cacti/links-plugin.html
 BuildRequires:	rpm-perlprov
+BuildRequires:	unzip
 Requires:	cacti
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
